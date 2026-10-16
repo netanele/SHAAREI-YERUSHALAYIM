@@ -1,0 +1,9 @@
+# Only the docs folder (the GitHub Pages site) goes into the repo.
+# Ignore everything in the root folder...
+/*
+# ...except the docs folder and this file.
+!/docs/
+!/.gitignore
+
+# macOS system files, anywhere
+.DS_Store

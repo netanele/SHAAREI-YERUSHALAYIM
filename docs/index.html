@@ -1,0 +1,767 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}body{margin:0;font:14px system-ui}html{box-sizing:border-box}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Shaarei Yerushalayim Catalog</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="שערי ירושלים · Shaarei Yerushalayim — בית של תורה, תפילה, חסד ואחדות בירושלים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap">
+<script>document.documentElement.lang='he';document.documentElement.dir='rtl';</script>
+<style>
+/* Layout: an open book resting on navy velvet. Wide screens show two-page spreads,
+   phones and portrait tablets show one leaf at a time. Gate arches (שערים) are the recurring motif. */
+:root{
+  --velvet:#0c172e; --velvet-2:#14244a; --velvet-3:#1f3263;
+  --stone:#f2eadb; --stone-2:#e6dac3;
+  --ink:#17213c; --ink-soft:#4a5371;
+  --gold:#cfa75a; --gold-hi:#ecd395; --gold-deep:#8a671f;
+  --ivory:#f6f0e2; --ivory-soft:#c9cedb;
+  --line:rgba(207,167,90,.5); --line-deep:rgba(138,103,31,.55);
+  --shade:rgba(5,10,24,.55);
+  --f-he:'Frank Ruhl Libre','David','Times New Roman',serif;
+  --f-lat:'EB Garamond',Garamond,Georgia,'Times New Roman',serif;
+  --f-caps:'Cinzel','Trajan Pro',Georgia,serif;
+  --f-ui:'Assistant','Segoe UI',system-ui,-apple-system,sans-serif;
+  --f-display:var(--f-he); --f-body:var(--f-he); --f-kicker:var(--f-he);
+  color-scheme:dark;
+}
+html:not([lang="he"]){--f-display:var(--f-lat); --f-body:var(--f-lat); --f-kicker:var(--f-caps)}
+html,body{height:100%}
+body{margin:0;background:var(--velvet);color:var(--ivory);font-family:var(--f-ui);overflow:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- app shell ---------- */
+#app{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;grid-template-columns:minmax(0,1fr);
+  background:radial-gradient(ellipse 80% 70% at 50% 45%,var(--velvet-2) 0%,var(--velvet) 62%,#081022 100%)}
+.bar{display:flex;align-items:center;gap:10px;padding-block:8px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  position:relative;z-index:20}
+.bar .mid{flex:1;min-width:0;display:flex;justify-content:center;align-items:center;gap:8px;color:var(--gold-hi)}
+.wm{font-family:var(--f-he);font-weight:700;font-size:19px;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+html:not([lang="he"]) .wm{font-family:var(--f-caps);font-weight:600;font-size:14px;letter-spacing:.14em}
+@media (max-width:480px){html:not([lang="he"]) .wm{font-size:10.5px;letter-spacing:.06em;white-space:normal;line-height:1.15;text-align:center;max-width:9.5em}html:not([lang="he"]) .mid svg{display:none}.ibtn .globe{display:none}.bar{gap:8px}.cta{padding:0 13px}}
+.mid svg{width:20px;height:22px;flex:none}
+.ibtn{flex:none;height:40px;min-width:40px;padding:0 10px;border-radius:999px;border:1px solid var(--line);
+  background:rgba(12,23,46,.4);color:var(--gold-hi);display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:14px;font-weight:600}
+.ibtn:hover{background:rgba(207,167,90,.12)}
+.ibtn svg{width:18px;height:18px}
+.lbl-wide{display:none}
+@media (min-width:760px){.lbl-wide{display:inline}}
+.cta{flex:none;height:40px;padding:0 16px;border-radius:999px;border:0;
+  background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:var(--velvet);font-weight:700;font-size:14px;
+  box-shadow:0 2px 10px rgba(207,167,90,.25)}
+.cta:hover{filter:brightness(1.06)}
+.cta .long{display:none}
+@media (min-width:760px){.cta .long{display:inline}.cta .short{display:none}}
+
+.foot{display:flex;align-items:center;justify-content:center;gap:14px;padding-block:8px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.count{direction:ltr;unicode-bidi:isolate;font-family:var(--f-ui);font-size:13px;color:var(--ivory-soft);font-variant-numeric:tabular-nums;min-width:56px;text-align:center}
+.meter{display:flex;flex-direction:column;align-items:center;gap:6px;width:min(220px,50vw)}
+.prog{width:100%;height:2px;background:rgba(207,167,90,.2);border-radius:2px;position:relative;overflow:hidden}
+.prog i{position:absolute;inset-block:0;inset-inline-start:0;width:0;background:var(--gold);transition:width .35s ease}
+.nav-btn svg{transform:none}
+[dir="rtl"] .flip{transform:scaleX(-1)}
+
+/* ---------- scroller ---------- */
+.scroller{min-height:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+  overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.scroller::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;width:100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;container-type:size;overflow:hidden}
+.single .slide{overflow-y:auto;overscroll-behavior-y:contain}
+.side-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:15;width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--line);background:rgba(12,23,46,.55);color:var(--gold-hi);display:none;align-items:center;justify-content:center}
+.side-nav svg{width:22px;height:22px}
+.side-nav:hover{background:rgba(207,167,90,.15)}
+.side-nav[disabled]{opacity:.25;cursor:default}
+.side-nav.prev{inset-inline-start:max(16px,env(safe-area-inset-left,0px))}
+.side-nav.next{inset-inline-end:max(16px,env(safe-area-inset-right,0px))}
+.spread .side-nav{display:flex}
+.spread .foot .nav-btn{display:none}
+.stage{position:relative;min-height:0}
+.stage>.scroller{position:absolute;inset:0}
+
+/* ---------- book (spread mode) ---------- */
+.desk{height:100%;display:flex;align-items:center;justify-content:center}
+.book{display:flex;height:min(calc(100cqh - 36px),calc((100cqw - 150px) * .6488));
+  box-shadow:0 22px 50px rgba(0,0,0,.55),0 4px 12px rgba(0,0,0,.35)}
+.book.one{height:min(calc(100cqh - 36px),calc((100cqw - 150px) * 1.2977))}
+.page{height:100%;aspect-ratio:215/279;position:relative;overflow:hidden;container-type:size;flex:none}
+.book.two .page:first-child::after,.book.two .page:last-child::after{content:"";position:absolute;inset-block:0;width:9%;pointer-events:none;z-index:5}
+.book.two .page:first-child::after{right:0;background:linear-gradient(to left,rgba(20,14,4,.28),transparent)}
+.book.two .page:last-child::after{left:0;background:linear-gradient(to right,rgba(20,14,4,.28),transparent)}
+[dir="rtl"] .book.two .page:first-child::after{right:auto;left:0;background:linear-gradient(to right,rgba(20,14,4,.28),transparent)}
+[dir="rtl"] .book.two .page:last-child::after{left:auto;right:0;background:linear-gradient(to left,rgba(20,14,4,.28),transparent)}
+
+.p-stone{background-color:var(--stone);color:var(--ink);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4  0 0 0 0 .32  0 0 0 0 .2  0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+  radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.55),transparent 65%)}
+.p-navy{background-color:var(--velvet-2);color:var(--ivory);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='54' viewBox='0 0 44 54'%3E%3Cpath d='M7 52V23a15 15 0 0 1 30 0v29' fill='none' stroke='%23cfa75a' stroke-opacity='.09' stroke-width='1'/%3E%3C/svg%3E"),
+  radial-gradient(ellipse at 50% 35%,var(--velvet-3),var(--velvet-2) 70%)}
+.frame{position:absolute;inset:5.5cqw;border:1px solid var(--line-deep);border-radius:50% 50% 3px 3px / 17cqw 17cqw 3px 3px;pointer-events:none}
+.frame::after{content:"";position:absolute;inset:1.3cqw;border:1px solid var(--line-deep);border-radius:50% 50% 2px 2px / 15.5cqw 15.5cqw 2px 2px;opacity:.6}
+.p-navy .frame,.p-navy .frame::after{border-color:var(--line)}
+.pg{position:absolute;inset:5.5cqw;padding:20cqw 9cqw 12cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2.6cqw}
+.kicker{font-family:var(--f-kicker);color:var(--gold-deep);font-size:clamp(11px,3.1cqw,17px);letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+html[lang="he"] .kicker{letter-spacing:.08em;font-weight:500}
+.p-navy .kicker{color:var(--gold)}
+.title{font-family:var(--f-display);font-weight:700;font-size:clamp(22px,7.4cqw,50px);line-height:1.12;margin:0;color:var(--ink);text-wrap:balance}
+html:not([lang="he"]) .title{font-weight:500;font-size:clamp(21px,6.8cqw,46px)}
+.p-navy .title{color:var(--gold-hi)}
+.orn{width:34cqw;max-width:180px;height:auto;color:var(--gold-deep);flex:none}
+.p-navy .orn{color:var(--gold)}
+.body{font-family:var(--f-body);font-size:clamp(14px,4.15cqw,26px);line-height:1.6;margin:0;color:var(--ink);max-width:62ch;text-wrap:pretty}
+html[lang="he"] .body{font-size:clamp(15px,4.4cqw,27px);line-height:1.65}
+.sub{font-family:var(--f-display);font-weight:600;font-size:clamp(15px,4.6cqw,30px);margin:1.4cqw 0 0;color:var(--gold-deep)}
+.folio{position:absolute;bottom:7.6cqw;left:0;right:0;text-align:center;font-family:var(--f-display);font-size:clamp(11px,3cqw,17px);color:var(--gold-deep);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.p-navy .folio{color:var(--gold)}
+.fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:var(--velvet-3)}
+.chip{position:absolute;z-index:4;inset-block-end:3.2cqw;inset-inline-end:3.2cqw;font-family:var(--f-ui);font-size:clamp(9px,2.4cqw,13px);
+  padding:.35em .8em;border-radius:999px;background:rgba(12,23,46,.62);color:var(--ivory);letter-spacing:.03em;backdrop-filter:blur(3px)}
+.chip.top{inset-block-end:auto;inset-block-start:3.2cqw}
+
+/* overlay page (two images on one spread) */
+.ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,15,34,.94) 0%,rgba(8,15,34,.82) 30%,rgba(8,15,34,.25) 55%,transparent 70%)}
+.ov-text{position:absolute;inset-inline:0;bottom:0;padding:0 8cqw 8cqw;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2cqw}
+.ov-text .kicker{color:var(--gold)}
+.ov-text .title{color:var(--gold-hi);font-size:clamp(20px,6.6cqw,44px)}
+.ov-text .body{color:var(--ivory);font-size:clamp(13px,3.75cqw,23px)}
+html[lang="he"] .ov-text .body{font-size:clamp(14px,4cqw,24px)}
+
+/* cover */
+.cov-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,15,34,.86) 0%,rgba(8,15,34,.55) 26%,transparent 46%)}
+.cov-head{position:absolute;inset-inline:0;top:0;padding:8cqw 6cqw 0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.8cqw;color:var(--gold-hi)}
+.cov-head .emb{width:11cqw;height:auto}
+.n-he{font-family:var(--f-he);font-weight:900;font-size:clamp(28px,12cqw,84px);line-height:1;margin:0;
+  background:linear-gradient(180deg,#f6e6b6,#d6b064 55%,#b98f3f);-webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.n-lat{font-family:var(--f-caps);font-weight:600;font-size:clamp(11px,4.1cqw,26px);letter-spacing:.2em;margin:0;color:var(--gold-hi)}
+.cov-lat{font-size:clamp(16px,6.2cqw,40px);letter-spacing:.13em;line-height:1.15}
+.cov-he-sub{font-size:clamp(20px,7cqw,44px)}
+.u-cover .cov-lat{font-size:clamp(20px,6.4cqw,30px)}
+.u-cover .cov-he-sub{font-size:30px}
+.cov-head .rule{width:30cqw;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.tagline{font-family:var(--f-display);font-size:clamp(12px,4cqw,24px);color:var(--ivory);margin:0;letter-spacing:.02em}
+html:not([lang="he"]) .tagline{font-family:var(--f-caps);font-size:clamp(10px,3cqw,18px);letter-spacing:.16em}
+
+/* navy content (ornament / vision / partner / back) */
+.stack{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2.4cqw}
+.big-emb{width:30cqw;height:auto;color:var(--gold)}
+.pillars{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:2.6cqw}
+.pillars li{font-family:var(--f-display);font-size:clamp(15px,5.6cqw,36px);color:var(--ivory);letter-spacing:.04em}
+html:not([lang="he"]) .pillars li{font-family:var(--f-caps);font-size:clamp(12px,4.2cqw,28px);letter-spacing:.2em}
+.pillars .dot{width:1.6cqw;height:1.6cqw;transform:rotate(45deg);background:var(--gold);display:block}
+.vision-text{font-family:var(--f-body);font-size:clamp(16px,5.4cqw,34px);line-height:1.5;margin:0;color:var(--ink);text-wrap:balance}
+html[lang="he"] .vision-text{font-size:clamp(17px,5.8cqw,36px)}
+.p-stone .vision-text::before,.p-stone .vision-text::after{color:var(--gold-deep)}
+.line{font-family:var(--f-display);font-size:clamp(13px,4.2cqw,26px);margin:0;color:var(--ivory)}
+.contact{display:flex;flex-direction:column;align-items:center;gap:1.4cqw}
+.contact .who{font-family:var(--f-display);font-size:clamp(13px,4cqw,24px);color:var(--ivory-soft)}
+.contact .who b{color:var(--ivory);font-weight:600}
+.num{font-family:var(--f-ui);font-weight:600;font-size:clamp(13px,4.2cqw,24px);color:var(--gold-hi);direction:ltr;unicode-bidi:isolate;user-select:all;font-variant-numeric:tabular-nums}
+.wa{display:inline-flex;align-items:center;gap:.6em;text-decoration:none;font-family:var(--f-ui);font-weight:700;
+  font-size:clamp(13px,3.9cqw,20px);padding:.75em 1.4em;border-radius:999px;background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:var(--velvet)}
+.wa svg{width:1.3em;height:1.3em}
+.wa:hover{filter:brightness(1.06)}
+.copy{border:1px solid var(--line);background:transparent;color:var(--gold-hi);border-radius:999px;font-family:var(--f-ui);font-size:clamp(11px,3cqw,15px);padding:.35em .9em}
+.qr-wrap{display:flex;align-items:center;gap:3cqw;margin-top:1cqw}
+.qr-tile{background:var(--ivory);padding:2.2cqw;border-radius:8px;line-height:0;flex:none}
+.qr-tile svg{width:clamp(70px,20cqw,140px);height:auto;display:block}
+.qr-wrap span{font-family:var(--f-ui);font-size:clamp(11px,3cqw,15px);color:var(--ivory-soft);max-width:22ch;text-align:start;line-height:1.4}
+.note{font-family:var(--f-ui);font-size:clamp(10px,2.6cqw,13px);color:var(--ivory-soft);margin:0;opacity:.85}
+.verse{font-family:var(--f-display);font-size:clamp(17px,6cqw,38px);line-height:1.35;color:var(--ivory);margin:0;text-wrap:balance}
+html:not([lang="he"]) .verse{font-style:italic}
+.src{font-family:var(--f-display);color:var(--gold);font-size:clamp(12px,3.6cqw,20px);margin:0}
+.fdn{font-family:var(--f-caps);font-size:clamp(9px,2.6cqw,14px);letter-spacing:.18em;color:var(--gold-hi);margin:0}
+.sub-ivory{font-family:var(--f-display);font-size:clamp(14px,4.8cqw,30px);color:var(--ivory);margin:0}
+
+/* ---------- single mode (phones, portrait tablets) ---------- */
+.u{min-height:100%;display:flex;flex-direction:column}
+.u-media{position:relative;flex:none;height:min(54cqh,129.3cqw);overflow:hidden;background:var(--velvet-3)}
+.u-media img{width:100%;height:100%;object-fit:cover;display:block}
+.u-media .chip{font-size:11px;inset-block-end:40px;inset-inline-end:14px}
+.u-panel{flex:1 0 auto;position:relative;margin-top:-30px;z-index:2;background-color:var(--stone);color:var(--ink);
+  border-radius:50% 50% 0 0 / 30px 30px 0 0;padding-block:38px 30px;
+  padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.u-panel .kicker{font-size:12px}
+.u-panel .title{font-size:clamp(23px,7.2cqw,34px)}
+.u-panel .orn{width:120px}
+.u-panel .body{font-size:18px;line-height:1.6;max-width:34em}
+html[lang="he"] .u-panel .body{font-size:19px}
+.u-panel .sub{font-size:20px;margin-top:6px}
+.u-cover{position:relative;height:100%;min-height:100%}
+.u-cover .cov-head{padding:clamp(28px,8cqh,70px) 20px 0;gap:10px}
+.u-cover .cov-head .emb{width:44px}
+.u-cover .n-he{font-size:clamp(40px,13cqw,72px)}
+.u-cover .n-lat{font-size:clamp(13px,4cqw,20px)}
+.u-cover .tagline{font-size:clamp(15px,4.4cqw,22px)}
+html:not([lang="he"]) .u-cover .tagline{font-size:clamp(11px,3.3cqw,16px)}
+.u-cover .cov-head .rule{width:120px}
+.u-cover .chip{font-size:11px;inset-block-end:78px}
+.hint{position:absolute;z-index:4;bottom:22px;left:0;right:0;display:flex;justify-content:center}
+.hint span{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:rgba(12,23,46,.7);color:var(--gold-hi);font-size:14px;font-weight:600;backdrop-filter:blur(4px)}
+.hint svg{width:18px;height:18px}
+.u-navy{min-height:100%;padding-block:34px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;box-sizing:border-box}
+.u-navy .big-emb{width:76px}
+.u-navy .title{font-size:30px}
+.u-navy .vision-text{color:var(--ivory);font-size:21px;max-width:30em}
+html[lang="he"] .u-navy .vision-text{font-size:22px}
+.u-navy .pillars{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:10px 14px}
+.u-navy .pillars li{font-size:17px}
+html:not([lang="he"]) .u-navy .pillars li{font-size:13px}
+.u-navy .pillars .dot{width:6px;height:6px}
+.u-navy .orn{width:120px}
+.u-navy .line{font-size:18px}
+.u-navy .who{font-size:17px}
+.u-navy .num{font-size:19px}
+.u-navy .wa{font-size:17px}
+.u-navy .copy{font-size:13px}
+.u-navy .qr-tile{padding:8px}
+.u-navy .qr-tile svg{width:96px}
+.u-navy .qr-wrap span{font-size:13px}
+.u-navy .note{font-size:12px}
+.u-navy .verse{font-size:25px;max-width:22em}
+.u-navy .src{font-size:16px}
+.u-navy .fdn{font-size:11px}
+.u-navy .sub-ivory{font-size:19px}
+.u-navy .n-he{font-size:44px}
+.u-navy .n-lat{font-size:14px}
+@container (min-width:640px) and (max-aspect-ratio:1/1){
+  .u-sec{align-items:center;padding-top:3cqh;box-sizing:border-box}
+  .u-sec .u-media{height:55cqh;width:auto;aspect-ratio:1103/1426;max-width:100%;box-shadow:0 14px 36px rgba(0,0,0,.45)}
+  .u-sec .u-media .chip{inset-block-end:52px}
+  .u-sec .u-panel{flex:0 0 auto;width:min(620px,86cqw);box-sizing:border-box;margin-top:-44px;border-radius:50% 50% 4px 4px / 52px 52px 4px 4px;padding:62px 40px 40px;box-shadow:0 14px 36px rgba(0,0,0,.45);margin-bottom:3cqh}
+  .u-sec .u-panel .title{font-size:34px}
+  .u-sec .u-panel .body{font-size:20px}
+}
+@container (min-width:640px) and (min-aspect-ratio:1/1){
+  .u-sec{flex-direction:row;align-items:safe center;justify-content:center;gap:4cqw;padding:3cqh 5cqw;box-sizing:border-box}
+  .u-sec .u-media{height:auto;width:min(44cqw,calc((100cqh - 6cqh) * .7735));aspect-ratio:1103/1426;max-width:100%;box-shadow:0 14px 36px rgba(0,0,0,.45)}
+  .u-sec .u-media .chip{inset-block-end:14px}
+  .u-sec .u-panel{flex:0 1 44cqw;min-width:0;margin-top:0;border-radius:50% 50% 4px 4px / 64px 64px 4px 4px;padding:76px 34px 44px;box-shadow:0 14px 36px rgba(0,0,0,.45)}
+}
+
+@container (min-width:640px) and (min-aspect-ratio:1/1) and (max-height:520px){
+  .u-sec{align-items:flex-start;padding:12px 5cqw}
+  .u-sec .u-media{width:min(34cqw,calc((100cqh - 24px) * .7735))}
+  .u-sec .u-panel{flex-basis:54cqw;padding:40px 26px 22px;gap:6px;border-radius:50% 50% 4px 4px / 36px 36px 4px 4px}
+  .u-sec .u-panel .title{font-size:22px}
+  .u-sec .u-panel .body{font-size:16px;line-height:1.5}
+  .u-sec .u-panel .sub{font-size:17px}
+}
+
+/* ---------- splash: four gates, one per language ---------- */
+.splash{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;overflow:auto;
+  padding-block:max(24px,env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-bottom,0px));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  background:var(--velvet);transition:opacity .6s ease,visibility .6s}
+.splash.gone{opacity:0;visibility:hidden}
+.splash-bg{position:fixed;inset:0;background-size:cover;background-position:center 40%;}
+.splash-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(12,23,46,.62),rgba(8,14,30,.9) 75%)}
+.splash-in{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;max-width:760px;margin:auto}
+.splash-in .emb{width:58px;height:auto;color:var(--gold-hi)}
+.splash-in .n-he{font-size:clamp(46px,12vw,86px)}
+.splash-in .n-lat{font-size:clamp(13px,3.4vw,20px)}
+.choose{font-family:var(--f-ui);font-size:14px;color:var(--ivory-soft);margin:6px 0 4px;line-height:1.5;display:flex;flex-wrap:wrap;justify-content:center;gap:2px 16px}
+.choose span{white-space:nowrap;unicode-bidi:isolate}
+.gates{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%;max-width:640px}
+@media (max-width:560px){.gates{grid-template-columns:repeat(2,1fr);max-width:340px}}
+.gate{position:relative;aspect-ratio:3/4;border:1px solid var(--line);border-radius:50% 50% 6px 6px / 34% 34% 6px 6px;
+  background:linear-gradient(180deg,rgba(31,50,99,.55),rgba(12,23,46,.78));display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;padding:0 8px 18%;
+  transition:transform .25s ease,border-color .25s,background .25s}
+.gate::before{content:"";position:absolute;inset:7px;border:1px solid rgba(207,167,90,.28);border-radius:50% 50% 4px 4px / 32% 32% 4px 4px;pointer-events:none}
+.gate:hover,.gate:focus-visible{transform:translateY(-3px);border-color:var(--gold-hi);background:linear-gradient(180deg,rgba(207,167,90,.22),rgba(12,23,46,.85))}
+.gate b{font-size:22px;font-weight:600;color:var(--gold-hi)}
+.gate b[lang="he"]{font-family:var(--f-he);font-size:26px;font-weight:700}
+.gate b:not([lang="he"]){font-family:var(--f-lat);font-size:23px;font-weight:500}
+.gate small{font-family:var(--f-ui);font-size:12px;color:var(--ivory-soft);letter-spacing:.06em}
+.splash .fdn{margin-top:10px;opacity:.8}
+
+/* ---------- menus ---------- */
+.langmenu{position:absolute;top:calc(100% - 2px);inset-inline-end:max(16px,env(safe-area-inset-right,0px));z-index:40;min-width:180px;
+  background:var(--velvet-2);border:1px solid var(--line);border-radius:12px;padding:6px;box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.langmenu button{display:flex;width:100%;justify-content:space-between;align-items:center;gap:12px;border:0;background:transparent;padding:10px 12px;border-radius:8px;font-size:16px;color:var(--ivory);text-align:start}
+.langmenu button:hover,.langmenu button[aria-current="true"]{background:rgba(207,167,90,.14);color:var(--gold-hi)}
+.langmenu small{font-size:12px;color:var(--ivory-soft)}
+.toc{position:fixed;inset:0;z-index:50;background:var(--velvet);overflow:auto;
+  padding-block:max(16px,env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-bottom,0px));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1100px;margin:0 auto 18px}
+.toc-head h2{margin:0;font-family:var(--f-display);font-weight:600;font-size:26px;color:var(--gold-hi)}
+.toc-grid{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px 14px}
+.toc-grid button{width:100%;border:0;background:transparent;padding:0;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.toc-thumb{aspect-ratio:3/4;border-radius:50% 50% 4px 4px / 24% 24% 4px 4px;overflow:hidden;border:1px solid var(--line);background:var(--velvet-2);display:grid;place-items:center}
+.toc-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.toc-thumb svg{width:44%;color:var(--gold)}
+.toc-grid button[aria-current="true"] .toc-thumb{border-color:var(--gold-hi);box-shadow:0 0 0 2px var(--gold)}
+.toc-grid button:hover .toc-thumb{border-color:var(--gold-hi)}
+.toc-k{font-family:var(--f-kicker);font-size:11px;color:var(--gold);letter-spacing:.14em;text-transform:uppercase}
+html[lang="he"] .toc-k{letter-spacing:.04em;font-size:12px}
+.toc-t{font-family:var(--f-display);font-size:16px;line-height:1.25;color:var(--ivory)}
+.toast{position:fixed;z-index:70;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--gold-hi);color:var(--velvet);
+  font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div id="app" class="single">
+  <header class="bar">
+    <button class="ibtn" id="tocBtn" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1"/></svg>
+      <span class="lbl-wide" data-ui="contents"></span><span class="sr" data-ui="contents"></span>
+    </button>
+    <div class="mid"><svg viewBox="0 0 64 72" aria-hidden="true" class="emb-s"><use href="#emb"/></svg><span class="wm" id="wm"></span></div>
+    <button class="ibtn" id="langBtn" aria-haspopup="menu" aria-expanded="false">
+      <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.6 3.6 5.6 3.6 8.5s-1 5.9-3.6 8.5c-2.6-2.6-3.6-5.6-3.6-8.5s1-5.9 3.6-8.5z"/></svg>
+      <span id="langCode"></span><span class="sr" data-ui="language"></span>
+    </button>
+    <button class="cta" id="ctaBtn"><span class="long" data-ui="partner"></span><span class="short" data-ui="partnerShort"></span></button>
+    <div class="langmenu" id="langMenu" role="menu" hidden></div>
+  </header>
+  <main class="stage" id="stage">
+    <div class="scroller" id="scroller" aria-live="polite"></div>
+    <button class="side-nav prev" id="sidePrev"><svg class="flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span class="sr" data-ui="prev"></span></button>
+    <button class="side-nav next" id="sideNext"><svg class="flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg><span class="sr" data-ui="next"></span></button>
+  </main>
+  <footer class="foot">
+    <button class="ibtn nav-btn" id="prevBtn"><svg class="flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span class="sr" data-ui="prev"></span></button>
+    <div class="meter"><span class="count" id="count"></span><div class="prog" aria-hidden="true"><i id="progBar"></i></div></div>
+    <button class="ibtn nav-btn" id="nextBtn"><svg class="flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg><span class="sr" data-ui="next"></span></button>
+  </footer>
+</div>
+
+<div class="toc" id="toc" role="dialog" aria-modal="true" aria-labelledby="tocTitle" hidden>
+  <div class="toc-head"><h2 id="tocTitle" data-ui="contents"></h2>
+    <button class="ibtn" id="tocClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="sr" data-ui="close"></span></button></div>
+  <ul class="toc-grid" id="tocGrid"></ul>
+</div>
+
+<div class="splash" id="splash">
+  <div class="splash-bg" style="background-image:url(img/sanctuary.jpg)"></div>
+  <div class="splash-in">
+    <svg class="emb" viewBox="0 0 64 72" aria-hidden="true"><use href="#emb"/></svg>
+    <h1 class="n-he" lang="he">שערי ירושלים</h1>
+    <p class="n-lat" lang="en">SHAAREI YERUSHALAYIM</p>
+    <p class="choose"><span lang="he" dir="rtl">בחרו שפה</span><span lang="en" dir="ltr">Choose a language</span><span lang="fr" dir="ltr">Choisissez une langue</span><span lang="es" dir="ltr">Elija un idioma</span></p>
+    <div class="gates">
+      <button class="gate" data-lang="he" lang="he" dir="rtl"><b lang="he">עברית</b><small>קטלוג</small></button>
+      <button class="gate" data-lang="en" lang="en" dir="ltr"><b lang="en">English</b><small>Catalog</small></button>
+      <button class="gate" data-lang="fr" lang="fr" dir="ltr"><b lang="fr">Français</b><small>Catalogue</small></button>
+      <button class="gate" data-lang="es" lang="es" dir="ltr"><b lang="es">Español</b><small>Catálogo</small></button>
+    </div>
+    <p class="fdn" dir="ltr" lang="en">SHAAREI YERUSHALAYIM FOUNDATION, INC.</p>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="emb" viewBox="0 0 64 72">
+    <path d="M10 66V30a22 22 0 0 1 44 0v36" fill="none" stroke="currentColor" stroke-width="2.4"/>
+    <path d="M18.5 66V31.5a13.5 13.5 0 0 1 27 0V66" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M29 4h6l-1.2 6.4h-3.6z" fill="currentColor"/>
+    <path d="M4 66.5h56M7.5 70.5h49" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M32 40l3 4.5-3 4.5-3-4.5z" fill="currentColor"/>
+  </symbol>
+  <symbol id="orn" viewBox="0 0 180 14">
+    <path d="M0 7h70M110 7h70" stroke="currentColor" stroke-width="1"/>
+    <path d="M90 1l6 6-6 6-6-6z" fill="currentColor"/>
+    <path d="M76 7l3-3 3 3-3 3zM98 7l3-3 3 3-3 3z" fill="currentColor" opacity=".7"/>
+  </symbol>
+</svg>
+
+<template id="qrTpl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" class="qr" role="img" aria-label="QR WhatsApp"><path stroke="#13213f" d="M0 0.5h7m2 0h2m1 0h2m2 0h1m1 0h7m-25 1h1m5 0h1m1 0h2m1 0h1m1 0h2m3 0h1m5 0h1m-25 1h1m1 0h3m1 0h1m1 0h1m3 0h1m2 0h1m2 0h1m1 0h3m1 0h1m-25 1h1m1 0h3m1 0h1m1 0h1m4 0h3m2 0h1m1 0h3m1 0h1m-25 1h1m1 0h3m1 0h1m4 0h4m3 0h1m1 0h3m1 0h1m-25 1h1m5 0h1m4 0h2m3 0h1m1 0h1m5 0h1m-25 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-17 1h2m4 0h3m-17 1h1m5 0h1m1 0h1m2 0h3m1 0h4m2 0h3m-24 1h1m1 0h2m6 0h2m3 0h2m2 0h5m-21 1h4m1 0h1m3 0h1m2 0h2m1 0h4m1 0h2m-25 1h3m4 0h5m5 0h3m1 0h1m2 0h1m-25 1h3m1 0h1m1 0h1m1 0h1m1 0h3m1 0h2m1 0h2m5 0h1m-25 1h5m2 0h2m3 0h4m3 0h1m3 0h1m-24 1h1m2 0h4m2 0h1m2 0h1m2 0h3m1 0h3m1 0h2m-25 1h1m4 0h1m1 0h4m1 0h1m2 0h1m3 0h1m1 0h2m1 0h1m-25 1h1m1 0h6m1 0h2m1 0h2m2 0h5m1 0h1m-15 1h2m2 0h1m1 0h1m1 0h1m3 0h1m-21 1h7m2 0h3m1 0h2m1 0h1m1 0h1m1 0h1m3 0h1m-25 1h1m5 0h1m5 0h1m3 0h1m3 0h1m2 0h2m-25 1h1m1 0h3m1 0h1m2 0h3m1 0h1m1 0h6m1 0h1m-23 1h1m1 0h3m1 0h1m4 0h3m1 0h4m4 0h2m-25 1h1m1 0h3m1 0h1m3 0h1m10 0h2m1 0h1m-25 1h1m5 0h1m2 0h2m1 0h1m1 0h1m1 0h2m1 0h2m3 0h1m-25 1h7m1 0h1m5 0h1m1 0h1m1 0h1m2 0h1m2 0h1"/></svg></template>
+
+<script>
+(function(){
+"use strict";
+const PHONE = "+1 786 909 0999";
+const WA = "https://wa.me/17869090999";
+const LANGS = ["he","en","fr","es"];
+const RTL = {he:true};
+
+const UI = {
+  he:{code:"עב",name:"עברית",contents:"תוכן העניינים",language:"שפה",partner:"הצטרפו כשותפים",partnerShort:"שותפות",prev:"הקודם",next:"הבא",close:"סגירה",
+      rendering:"הדמיה רעיונית",swipe:"החליקו לדפדוף",whatsapp:"פנייה בוואטסאפ",scan:"סרקו את הקוד לפנייה בוואטסאפ",copy:"העתקת המספר",copied:"המספר הועתק",
+      note:"כל התמונות הן הדמיות רעיוניות של פרויקט מתוכנן.",cover:"שער הקטלוג",wa:"שלום מרק, ראיתי את קטלוג שערי ירושלים ואשמח לשמוע על שותפות בהקמה."},
+  en:{code:"EN",name:"English",contents:"Contents",language:"Language",partner:"Become a Partner",partnerShort:"Partner",prev:"Previous",next:"Next",close:"Close",
+      rendering:"Conceptual rendering",swipe:"Swipe to turn the page",whatsapp:"Contact on WhatsApp",scan:"Scan the code to message on WhatsApp",copy:"Copy number",copied:"Number copied",
+      note:"All images are conceptual renderings of a planned project.",cover:"Cover",wa:"Hello Marc, I saw the Shaarei Yerushalayim catalog and would like to hear about partnering in the project."},
+  fr:{code:"FR",name:"Français",contents:"Sommaire",language:"Langue",partner:"Devenir partenaire",partnerShort:"Partenaire",prev:"Précédent",next:"Suivant",close:"Fermer",
+      rendering:"Image conceptuelle",swipe:"Glissez pour tourner la page",whatsapp:"Contacter sur WhatsApp",scan:"Scannez le code pour écrire sur WhatsApp",copy:"Copier le numéro",copied:"Numéro copié",
+      note:"Toutes les images sont des vues conceptuelles d’un projet prévu.",cover:"Couverture",wa:"Bonjour Marc, j’ai vu le catalogue de Shaarei Yerushalayim et j’aimerais en savoir plus sur un partenariat."},
+  es:{code:"ES",name:"Español",contents:"Índice",language:"Idioma",partner:"Colabore con nosotros",partnerShort:"Colaborar",prev:"Anterior",next:"Siguiente",close:"Cerrar",
+      rendering:"Imagen conceptual",swipe:"Deslice para pasar la página",whatsapp:"Contactar por WhatsApp",scan:"Escanee el código para escribir por WhatsApp",copy:"Copiar número",copied:"Número copiado",
+      note:"Todas las imágenes son representaciones conceptuales de un proyecto planificado.",cover:"Portada",wa:"Hola Marc, vi el catálogo de Shaarei Yerushalayim y me gustaría saber más sobre cómo colaborar."}
+};
+
+const KICK = {
+  he:{prayer:"תפילה",torah:"תורה",kindness:"חסד",campus:"המתחם",partnership:"שותפות",vision:"החזון"},
+  en:{prayer:"Prayer",torah:"Torah",kindness:"Kindness",campus:"The Campus",partnership:"Partnership",vision:"The Vision"},
+  fr:{prayer:"Prière",torah:"Torah",kindness:"Bienfaisance",campus:"Le Complexe",partnership:"Partenariat",vision:"La Vision"},
+  es:{prayer:"Oración",torah:"Torá",kindness:"Bondad",campus:"El Complejo",partnership:"Colaboración",vision:"La Visión"}
+};
+
+/* Texts: bodies verbatim from the Word files (Shaarei_Yerushalayim_Texts, Printiv_Handoff computer-room texts, 12_Underground_Parking).
+   Titles in EN/FR/ES are translations of the Hebrew headings, pending Marc's approval. */
+const T = {
+he:{
+ cover:{name:"שערי ירושלים",alt:"SHAAREI YERUSHALAYIM",tag:"בית של תורה, תפילה, חסד ואחדות"},
+ pillars:["תורה","תפילה","חסד","אחדות"],
+ vision:{t:"החזון",b:"שערי ירושלים יהיה בית של תורה, תפילה, חסד ואחדות בלב ירושלים, הפתוח לכל יהודי ומאיר לדורות הבאים."},
+ garden:{t:"הגן הירושלמי",b:"גן מעגלי ושליו עם מזרקה מרכזית אחת, עצי זית, שבילים נגישים ומקומות ישיבה יעניק למבקרים מרחב נעים למנוחה ולמפגש."},
+ sanctuary:{t:"בית הכנסת המרכזי",b:"לב הפרויקט יהיה היכל תפילה מרומם ומכובד, המשלב את יופייה של ירושלים עם קדושה, אחדות והכנסת אורחים.",s:"התקרה והתאורה",b2:"תקרה אמנותית, לוסטרות ותאורה חמה ייצרו אווירה של התעלות, יופי וכבוד לתפילה."},
+ dome:{t:"סיפורי התורה בכיפת ההיכל",b:"כיפת ההיכל תעוטר בציורים אמנותיים ומכובדים מסיפורי התורה, ובהם בריאת העולם, תיבת נח, אברהם אבינו, סולם יעקב, קריעת ים סוף, מתן תורה והמסע במדבר, סביב לוסטר מרכזי מפואר."},
+ arkOpen:{t:"ארון הקודש וספרי התורה",b:"ארון קודש מפואר ומעוגל יציג מספר רב של ספרי תורה מהודרים, המסודרים בחצי עיגול סביב ספר מרכזי ובכבוד הראוי."},
+ arkClosed:{t:"ארון הקודש הסגור",b:"כאשר ארון הקודש סגור, דלתות הזהב המעוגלות ישלימו את צורת ההיכל ויעניקו לבית הכנסת מראה מפואר, מכובד והרמוני."},
+ kollel:{t:"בית המדרש והכולל",b:"בית מדרש עשיר בספרים ושולחנות לימוד ישמש את אברכי הכולל ללימוד תורה בעיון, בחברותא ובשיעורים. בצדי האולם יוצבו עמדות מחשב צנועות לחיפוש מקורות תורניים ולעיון במאגרים דיגיטליים."},
+ library:{t:"חדרי לימוד וספרייה",b:"ספרייה תורנית וחדרי לימוד עם מחשבים ומסכים יאפשרו שיעורים, לימוד עצמי וגישה למקורות ולמאגרים תורניים."},
+ computers:{t:"חדר מחשבים ולימוד דיגיטלי",b:"חדר מחשבים מאובזר וספרייה דיגיטלית יאפשרו ללומדים גישה למקורות ולמאגרים תורניים, לימוד עצמי ושיעורים מודרכים. המרחב ישלב עמדות עבודה נוחות וספרי לימוד, כחלק מפעילות התורה והקהילה של שערי ירושלים."},
+ reception:{t:"קבלת עולים ואורחים",b:"אולם קבלה חם ומכובד יעניק הכוונה, ליווי ותחושת בית לעולים, לתיירים ולאורחים מכל העולם."},
+ hall:{t:"אולם האירוח",b:"אולם אירוח מרשים עם שולחנות עגולים ולוסטרות ישמש את הלומדים, המבקרים, הרבנים והמשפחות לסעודות ולכינוסים פנימיים. האולם לא יוצע להשכרה מסחרית."},
+ kitchen:{t:"המטבח הכשר",b:"מטבח מוסדי כשר ומשוכלל יכין ארוחות ללומדי הכולל, למבקרים, לעולים ולאורחים, עם הפרדה, בטיחות וציוד מקצועי. הוא נועד לצורכי המרכז בלבד."},
+ parking:{t:"חניה תת־קרקעית",b:"חניה תת־קרקעית נגישה ובטוחה מתוכננת להקל על הגעת הלומדים והמבקרים ולשמור על סביבת המרכז נעימה ומסודרת."},
+ donors:{t:"הוקרה לתורמים",b:"קיר הוקרה מכובד יוקדש לשמות התורמים והשותפים בהקמת הבית, כביטוי להכרת הטוב ולשותפות בבניין בית של תורה וחסד לדורות."},
+ partner:{t:"יחד נבנה",line:"שותפות בהקמה, הקדשות ותרומות",contact:"ליצירת קשר",who:"מרק אלבז"},
+ back:{name:"שערי ירושלים",sub:"בית בירושלים לכל יהודי",verse:"כי מציון תצא תורה ודבר ה׳ מירושלים",src:"ישעיהו ב, ג"}
+},
+en:{
+ cover:{name:"SHAAREI YERUSHALAYIM",alt:"שערי ירושלים",tag:"TORAH • PRAYER • KINDNESS • UNITY"},
+ pillars:["Torah","Prayer","Kindness","Unity"],
+ vision:{t:"The Vision",b:"Shaarei Yerushalayim will be a living home of Torah, prayer, kindness and Jewish unity in the heart of Jerusalem, open to every Jew and built for generations."},
+ garden:{t:"The Jerusalem Garden",b:"A peaceful circular garden with one central fountain, olive trees, accessible paths and seating will offer visitors a welcoming space to rest and meet."},
+ sanctuary:{t:"The Main Synagogue",b:"At the heart of the project will stand an inspiring sanctuary, combining the beauty of Jerusalem with holiness, unity and hospitality.",s:"Ceiling and Lighting",b2:"An artistic ceiling, chandeliers and warm lighting will create an atmosphere of beauty, dignity and spiritual elevation."},
+ dome:{t:"Torah Stories in the Sanctuary Dome",b:"The sanctuary dome will be adorned with dignified artistic scenes from the Torah, including Creation, Noah’s Ark, Abraham, Jacob’s ladder, the splitting of the sea, the giving of the Torah and the journey through the desert, surrounding a magnificent central chandelier."},
+ arkOpen:{t:"The Aron Kodesh and Torah Scrolls",b:"A magnificent curved Aron Kodesh will display many honored Torah scrolls, arranged in a semicircle around a prominent central scroll."},
+ arkClosed:{t:"The Closed Aron Kodesh",b:"When the Aron Kodesh is closed, its curved golden doors will complete the sanctuary’s circular design and create a majestic, dignified and harmonious interior."},
+ kollel:{t:"The Beit Midrash and Kollel",b:"A book-lined Beit Midrash will welcome Kollel scholars for in-depth Torah learning, chavruta and classes. Discreet computer stations along the side walls will assist them in searching Torah sources and digital Judaica databases."},
+ library:{t:"Library and Study Rooms",b:"A Torah library and classrooms with computers and screens will support classes, individual learning and access to Torah resources and digital databases."},
+ computers:{t:"Computer Room and Digital Learning",b:"An equipped computer room and digital library will give learners access to Torah sources and databases, support independent study and guided classes. Comfortable workstations and study books will form part of the Torah and community activities of Shaarei Yerushalayim."},
+ reception:{t:"Welcoming Olim and Guests",b:"A warm, dignified reception hall will offer guidance, assistance and a sense of home to new immigrants, tourists and visitors from around the world."},
+ hall:{t:"The Hospitality Hall",b:"An impressive hall with round tables and chandeliers will serve students, visitors, rabbis and families for meals and internal gatherings. It will not be offered for commercial rental."},
+ kitchen:{t:"The Kosher Kitchen",b:"A modern institutional kosher kitchen will prepare meals for Kollel students, visitors, olim and guests, with proper separation, safety and professional equipment. It is solely for the center’s needs."},
+ parking:{t:"Underground Parking",b:"Accessible and safe underground parking is planned to ease arrival for students and visitors and help keep the center’s surroundings orderly."},
+ donors:{t:"Donor Recognition",b:"A distinguished recognition wall will honor the donors and partners who help establish this home, expressing gratitude for their role in building a lasting center of Torah and kindness."},
+ partner:{t:"TOGETHER WE WILL BUILD",line:"Partnerships • Dedications • Donations",contact:"Contact",who:"Marc Elbaz"},
+ back:{name:"SHAAREI YERUSHALAYIM",sub:"A home in Jerusalem for every Jew",verse:"For Torah shall go forth from Zion, and the word of God from Jerusalem.",src:"Isaiah 2:3"}
+},
+fr:{
+ cover:{name:"SHAAREI YERUSHALAYIM",alt:"שערי ירושלים",tag:"TORAH • PRIÈRE • BIENFAISANCE • UNITÉ"},
+ pillars:["Torah","Prière","Bienfaisance","Unité"],
+ vision:{t:"La Vision",b:"Shaarei Yerushalayim sera une maison vivante de Torah, de prière, de bienfaisance et d’unité juive au cœur de Jérusalem, ouverte à chaque Juif et destinée aux générations futures."},
+ garden:{t:"Le Jardin de Jérusalem",b:"Un jardin circulaire paisible, avec une seule fontaine centrale, des oliviers, des allées accessibles et des sièges, offrira aux visiteurs un lieu agréable de repos et de rencontre."},
+ sanctuary:{t:"La Synagogue principale",b:"Au cœur du projet se dressera un sanctuaire inspirant, unissant la beauté de Jérusalem à la sainteté, à l’unité et à l’accueil.",s:"Plafond et lumière",b2:"Un plafond artistique, des lustres et une lumière chaleureuse créeront une atmosphère de beauté, de dignité et d’élévation spirituelle."},
+ dome:{t:"Les récits de la Torah dans la coupole",b:"La coupole du sanctuaire sera ornée de scènes artistiques et dignes de la Torah : la Création, l’arche de Noé, Abraham, l’échelle de Jacob, l’ouverture de la mer, le don de la Torah et le voyage dans le désert, autour d’un lustre central majestueux."},
+ arkOpen:{t:"L’Arche Sainte et les Sifrei Torah",b:"Une magnifique Arche Sainte incurvée présentera de nombreux Sifrei Torah somptueux, disposés en demi-cercle autour d’un rouleau central majestueux."},
+ arkClosed:{t:"L’Arche Sainte fermée",b:"Lorsque l’Arche Sainte sera fermée, ses portes dorées incurvées compléteront la forme circulaire du sanctuaire et lui donneront une allure majestueuse, digne et harmonieuse."},
+ kollel:{t:"Le Beit Midrash et le Kollel",b:"Un Beit Midrash riche en livres accueillera les avrékhim du Kollel pour l’étude approfondie de la Torah, la havrouta et les cours. Des postes informatiques discrets le long des murs latéraux faciliteront la recherche de sources de Torah et la consultation de bases de données judaïques numériques."},
+ library:{t:"Bibliothèque et salles d’étude",b:"Une bibliothèque de Torah et des salles de cours équipées d’ordinateurs et d’écrans permettront les cours, l’étude individuelle et l’accès aux sources et aux bases de données de Torah."},
+ computers:{t:"Salle informatique et étude numérique",b:"Une salle informatique équipée et une bibliothèque numérique donneront accès aux sources et aux bases de données de Torah, pour l’étude individuelle et les cours accompagnés. Des postes de travail confortables et des livres d’étude compléteront les activités de Torah et de la communauté de Shaarei Yerushalayim."},
+ reception:{t:"Accueil des olim et des visiteurs",b:"Un hall d’accueil chaleureux offrira orientation, accompagnement et sentiment d’appartenance aux nouveaux immigrants, touristes et visiteurs du monde entier."},
+ hall:{t:"La Salle de réception",b:"Une salle prestigieuse avec tables rondes et lustres accueillera étudiants, visiteurs, rabbins et familles pour les repas et réunions internes. Elle ne sera pas proposée à la location commerciale."},
+ kitchen:{t:"La Cuisine cachère",b:"Une cuisine institutionnelle cachère moderne préparera les repas des étudiants, visiteurs, olim et invités, avec séparation, sécurité et équipement professionnel. Elle servira uniquement les besoins du centre."},
+ parking:{t:"Stationnement souterrain",b:"Un stationnement souterrain sûr et accessible est prévu pour faciliter l’arrivée des étudiants et des visiteurs et préserver les abords du centre."},
+ donors:{t:"Reconnaissance des donateurs",b:"Un mur de reconnaissance honorera les donateurs et les partenaires qui contribueront à la création de cette maison, en témoignage de gratitude pour leur participation à un centre durable de Torah et de bienfaisance."},
+ partner:{t:"ENSEMBLE NOUS BÂTIRONS",line:"Partenariats • Dédicaces • Dons",contact:"Contact",who:"Marc Elbaz"},
+ back:{name:"SHAAREI YERUSHALAYIM",sub:"Une maison à Jérusalem pour chaque Juif",verse:"Car de Sion sortira la Torah, et de Jérusalem la parole de D.ieu.",src:"Isaïe 2:3"}
+},
+es:{
+ cover:{name:"SHAAREI YERUSHALAYIM",alt:"שערי ירושלים",tag:"TORÁ • ORACIÓN • BONDAD • UNIDAD"},
+ pillars:["Torá","Oración","Bondad","Unidad"],
+ vision:{t:"La Visión",b:"Shaarei Yerushalayim será un hogar vivo de Torá, oración, bondad y unidad judía en el corazón de Jerusalén, abierto a cada judío y construido para las futuras generaciones."},
+ garden:{t:"El Jardín de Jerusalén",b:"Un jardín circular tranquilo con una sola fuente central, olivos, senderos accesibles y asientos ofrecerá a los visitantes un espacio agradable para descansar y reunirse."},
+ sanctuary:{t:"La Sinagoga Principal",b:"En el corazón del proyecto habrá un santuario inspirador que unirá la belleza de Jerusalén con santidad, unidad y hospitalidad.",s:"Techo e iluminación",b2:"Un techo artístico, lámparas de araña y una iluminación cálida crearán una atmósfera de belleza, dignidad y elevación espiritual."},
+ dome:{t:"Las historias de la Torá en la cúpula",b:"La cúpula del santuario estará decorada con escenas artísticas y dignas de la Torá: la Creación, el arca de Noé, Abraham, la escalera de Jacob, la apertura del mar, la entrega de la Torá y el viaje por el desierto, alrededor de una lámpara central majestuosa."},
+ arkOpen:{t:"El Arón Hakódesh y los rollos de la Torá",b:"Un magnífico Arón Hakódesh curvo presentará numerosos rollos de la Torá, dispuestos en semicírculo alrededor de un rollo central destacado."},
+ arkClosed:{t:"El Arón Hakódesh cerrado",b:"Cuando el Arón Hakódesh esté cerrado, sus puertas doradas curvas completarán el diseño circular del santuario y crearán un interior majestuoso, digno y armonioso."},
+ kollel:{t:"El Beit Midrash y el Kollel",b:"Un Beit Midrash lleno de libros acogerá a los estudiosos del Kollel para el aprendizaje profundo de la Torá, la javrutá y las clases. Discretas estaciones de computadora a los lados ayudarán a buscar fuentes de Torá y consultar bases de datos judaicas digitales."},
+ library:{t:"Biblioteca y aulas de estudio",b:"Una biblioteca de Torá y aulas con computadoras y pantallas facilitarán las clases, el estudio individual y el acceso a fuentes y bases de datos de Torá."},
+ computers:{t:"Sala de computadoras y estudio digital",b:"Una sala de computadoras equipada y una biblioteca digital ofrecerán acceso a fuentes y bases de datos de Torá, para el estudio individual y las clases guiadas. Los puestos de trabajo cómodos y los libros de estudio formarán parte de las actividades de Torá y de la comunidad de Shaarei Yerushalayim."},
+ reception:{t:"Recepción de olim y visitantes",b:"Un espacio acogedor ofrecerá orientación, acompañamiento y un sentimiento de hogar a nuevos inmigrantes, turistas y visitantes de todo el mundo."},
+ hall:{t:"El Salón de Hospitalidad",b:"Un salón impresionante con mesas redondas y lámparas de araña servirá a estudiantes, visitantes, rabinos y familias para comidas y reuniones internas. No se ofrecerá en alquiler comercial."},
+ kitchen:{t:"La Cocina Kósher",b:"Una cocina institucional kósher moderna preparará comidas para estudiantes, visitantes, olim e invitados, con separación, seguridad y equipo profesional. Será únicamente para las necesidades del centro."},
+ parking:{t:"Estacionamiento subterráneo",b:"Se prevé estacionamiento subterráneo seguro y accesible para facilitar la llegada de estudiantes y visitantes y mantener ordenado el entorno del centro."},
+ donors:{t:"Reconocimiento a los donantes",b:"Un distinguido muro de reconocimiento honrará a los donantes y colaboradores que ayuden a crear este hogar, expresando gratitud por su participación en un centro duradero de Torá y bondad."},
+ partner:{t:"JUNTOS CONSTRUIREMOS",line:"Colaboraciones • Dedicatorias • Donaciones",contact:"Contacto",who:"Marc Elbaz"},
+ back:{name:"SHAAREI YERUSHALAYIM",sub:"Un hogar en Jerusalén para cada judío",verse:"Porque de Sion saldrá la Torá, y de Jerusalén la palabra de Dios.",src:"Isaías 2:3"}
+}};
+
+/* Units: the content pieces. On phones each unit is one page; on wide screens units are paired into book spreads. */
+const UNITS = {
+ cover:{img:"exterior"}, vision:{kick:"vision"},
+ garden:{img:"garden",kick:"campus"}, sanctuary:{img:"sanctuary",kick:"prayer"}, dome:{img:"dome",kick:"prayer",pos:"50% 30%"},
+ arkOpen:{img:"ark-open",kick:"prayer"}, arkClosed:{img:"ark-closed",kick:"prayer"},
+ kollel:{img:"kollel",kick:"torah"}, library:{img:"library",kick:"torah"}, computers:{img:"computers",kick:"torah"},
+ reception:{img:"reception",kick:"kindness"}, hall:{img:"hall",kick:"kindness"}, kitchen:{img:"kitchen",kick:"kindness"},
+ parking:{img:"parking",kick:"campus"}, donors:{img:"donors",kick:"partnership",pos:"50% 35%"},
+ partner:{}, back:{}
+};
+const ORDER = ["cover","vision","garden","sanctuary","dome","arkOpen","arkClosed","kollel","library","computers","reception","hall","kitchen","parking","donors","partner","back"];
+/* Spreads follow the print page plan: cover separate, 24 inner pages, back cover. f = folio number. */
+const SPREADS = [
+ {units:["cover"],pages:[["cover"]]},
+ {units:["vision"],pages:[["ornament"],["vision",1]]},
+ {units:["garden"],pages:[["text","garden",2],["image","garden"]]},
+ {units:["sanctuary"],pages:[["text","sanctuary",4],["image","sanctuary"]]},
+ {units:["dome"],pages:[["text","dome",6],["image","dome"]]},
+ {units:["arkOpen","arkClosed"],pages:[["overlay","arkOpen"],["overlay","arkClosed"]]},
+ {units:["kollel"],pages:[["text","kollel",10],["image","kollel"]]},
+ {units:["library"],pages:[["text","library",12],["image","library"]]},
+ {units:["computers"],pages:[["text","computers",14],["image","computers"]]},
+ {units:["reception"],pages:[["text","reception",16],["image","reception"]]},
+ {units:["hall","kitchen"],pages:[["overlay","hall"],["overlay","kitchen"]]},
+ {units:["parking"],pages:[["text","parking",20],["image","parking"]]},
+ {units:["donors"],pages:[["text","donors",22],["image","donors"]]},
+ {units:["partner","back"],pages:[["partner",24],["back"]]}
+];
+
+const HEB = ["","א","ב","ג","ד","ה","ו","ז","ח","ט","י","יא","יב","יג","יד","טו","טז","יז","יח","יט","כ","כא","כב","כג","כד"];
+
+const S = {lang:"he", mode:"single", unit:"cover", index:0, slides:[], restoring:false};
+const $ = id => document.getElementById(id);
+const app=$("app"), scroller=$("scroller");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ui = k => UI[S.lang][k];
+const tx = () => T[S.lang];
+const emb = cls => `<svg class="${cls}" viewBox="0 0 64 72" aria-hidden="true"><use href="#emb"/></svg>`;
+const orn = () => `<svg class="orn" viewBox="0 0 180 14" aria-hidden="true"><use href="#orn"/></svg>`;
+const folio = n => n ? `<div class="folio">${S.lang==="he" ? HEB[n] : n}</div>` : "";
+const imgTag = (u, cls) => { const d = UNITS[u]; return `<img class="${cls}" data-src="img/${d.img}.jpg" alt="${esc(tx()[u] ? tx()[u].t : "")}" style="object-position:${d.pos||"50% 50%"}" decoding="async">`; };
+const chip = (top) => `<span class="chip${top?" top":""}">${esc(ui("rendering"))}</span>`;
+const kick = u => UNITS[u].kick ? `<div class="kicker">${esc(KICK[S.lang][UNITS[u].kick])}</div>` : "";
+const waHref = () => WA + "?text=" + encodeURIComponent(ui("wa"));
+const waIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5a9.4 9.4 0 0 0-8.1 14.2L2.5 21.5l4.9-1.3A9.4 9.4 0 1 0 12 2.5zm0 17.1a7.7 7.7 0 0 1-3.9-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A7.7 7.7 0 1 1 12 19.6zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8.9-.3.2-.5.1a6.3 6.3 0 0 1-3.1-2.7c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>`;
+
+function sectionBody(u){
+  const d = tx()[u];
+  let h = `<p class="body">${esc(d.b)}</p>`;
+  if (d.s) h += `<h3 class="sub">${esc(d.s)}</h3><p class="body">${esc(d.b2)}</p>`;
+  return h;
+}
+function coverHead(){
+  const c = tx().cover, he = S.lang==="he";
+  return `<div class="cov-head">${emb("emb")}
+    ${he ? `<h2 class="n-he">${esc(c.name)}</h2><p class="n-lat" lang="en">${esc(c.alt)}</p>`
+         : `<h2 class="n-lat cov-lat">${esc(c.name)}</h2><p class="n-he cov-he-sub" lang="he">${esc(c.alt)}</p>`}
+    <span class="rule"></span><p class="tagline">${esc(c.tag)}</p></div>`;
+}
+function partnerInner(){
+  const p = tx().partner;
+  return `<div class="kicker">${esc(KICK[S.lang].partnership)}</div>
+    <h2 class="title">${esc(p.t)}</h2>${orn()}
+    <p class="line">${esc(p.line)}</p>
+    <div class="contact"><span class="who">${esc(p.contact)}: <b>${esc(p.who)}</b></span>
+      <span class="num">WhatsApp ${PHONE}</span></div>
+    <a class="wa" href="${waHref()}" target="_blank" rel="noopener">${waIcon}<span>${esc(ui("whatsapp"))}</span></a>
+    <button class="copy" type="button" data-copy>${esc(ui("copy"))}</button>
+    <div class="qr-wrap"><div class="qr-tile">${$("qrTpl").innerHTML}</div><span>${esc(ui("scan"))}</span></div>`;
+}
+function backInner(){
+  const b = tx().back, he = S.lang==="he";
+  return `${emb("big-emb")}
+    ${he ? `<h2 class="n-he">${esc(b.name)}</h2>` : `<h2 class="n-lat">${esc(b.name)}</h2>`}
+    <p class="sub-ivory">${esc(b.sub)}</p>${orn()}
+    <p class="verse">${esc(b.verse)}</p><p class="src">${esc(b.src)}</p>
+    <p class="fdn" dir="ltr" lang="en">SHAAREI YERUSHALAYIM FOUNDATION, INC.</p>
+    <p class="note">${esc(ui("note"))}</p>`;
+}
+function pillarsList(){
+  return `<ul class="pillars">${tx().pillars.map((w,i)=> (i? `<li aria-hidden="true"><span class="dot"></span></li>`:"") + `<li>${esc(w)}</li>`).join("")}</ul>`;
+}
+
+/* ----- spread pages ----- */
+function page(spec){
+  const [kind,u,f] = spec;
+  switch(kind){
+   case "cover": return `<div class="page">${imgTag("cover","fill")}<div class="cov-shade"></div>${coverHead()}${chip()}</div>`;
+   case "ornament": return `<div class="page p-navy"><div class="frame"></div><div class="pg">${emb("big-emb")}${pillarsList()}</div></div>`;
+   case "vision": return `<div class="page p-stone"><div class="frame"></div><div class="pg"><div class="kicker">${S.lang==="he"?"שערי ירושלים":"Shaarei Yerushalayim"}</div><h2 class="title">${esc(tx().vision.t)}</h2>${orn()}<p class="vision-text">${esc(tx().vision.b)}</p></div>${folio(f)}</div>`;
+   case "text": return `<div class="page p-stone"><div class="frame"></div><div class="pg">${kick(u)}<h2 class="title">${esc(tx()[u].t)}</h2>${orn()}${sectionBody(u)}</div>${folio(f)}</div>`;
+   case "image": return `<div class="page">${imgTag(u,"fill")}${chip()}</div>`;
+   case "overlay": return `<div class="page">${imgTag(u,"fill")}<div class="ov"></div>${chip(true)}<div class="ov-text">${kick(u)}<h2 class="title">${esc(tx()[u].t)}</h2>${sectionBody(u)}</div></div>`;
+   case "partner": return `<div class="page p-navy"><div class="frame"></div><div class="pg">${partnerInner()}</div>${folio(f)}</div>`;
+   case "back": return `<div class="page p-navy"><div class="frame"></div><div class="pg">${backInner()}</div></div>`;
+  }
+  return "";
+}
+/* ----- single-mode units ----- */
+function unitHTML(u){
+  if (u==="cover") return `<div class="u-cover">${imgTag("cover","fill")}<div class="cov-shade"></div>${coverHead()}${chip()}
+     <div class="hint"><span>${esc(ui("swipe"))}<svg class="flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>`;
+  if (u==="vision") return `<div class="u-navy p-navy">${emb("big-emb")}<h2 class="title">${esc(tx().vision.t)}</h2>${orn()}<p class="vision-text">${esc(tx().vision.b)}</p>${pillarsList()}</div>`;
+  if (u==="partner") return `<div class="u-navy p-navy">${partnerInner()}</div>`;
+  if (u==="back") return `<div class="u-navy p-navy">${backInner()}</div>`;
+  return `<div class="u u-sec"><div class="u-media">${imgTag(u,"")}${chip()}</div>
+     <div class="u-panel p-stone">${kick(u)}<h2 class="title">${esc(tx()[u].t)}</h2>${orn()}${sectionBody(u)}</div></div>`;
+}
+
+function render(){
+  S.mode = matchMedia("(min-width: 900px) and (min-aspect-ratio: 11/10)").matches ? "spread" : "single";
+  app.className = S.mode;
+  let html = "";
+  S.slides = [];
+  if (S.mode==="spread"){
+    SPREADS.forEach((sp,i)=>{
+      S.slides.push(sp.units);
+      const two = sp.pages.length===2;
+      html += `<section class="slide" data-i="${i}" aria-roledescription="spread"><div class="desk"><div class="book ${two?"two":"one"}">${sp.pages.map(page).join("")}</div></div></section>`;
+    });
+  } else {
+    ORDER.forEach((u,i)=>{
+      S.slides.push([u]);
+      html += `<section class="slide" data-i="${i}" data-u="${u}">${unitHTML(u)}</section>`;
+    });
+  }
+  scroller.innerHTML = html;
+  scroller.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click", copyNumber));
+}
+
+function applyLang(l){
+  S.lang = l;
+  const root = document.documentElement;
+  root.lang = l; root.dir = RTL[l] ? "rtl" : "ltr";
+  document.querySelectorAll("[data-ui]").forEach(el => { el.textContent = ui(el.dataset.ui); });
+  $("wm").textContent = l==="he" ? "שערי ירושלים" : "SHAAREI YERUSHALAYIM";
+  $("langCode").textContent = UI[l].code;
+  $("ctaBtn").setAttribute("aria-label", ui("partner"));
+  buildLangMenu();
+}
+
+function slideIndexOf(u){ const i = S.slides.findIndex(arr => arr.includes(u)); return i<0?0:i; }
+function rtl(){ return document.documentElement.dir==="rtl"; }
+function smooth(){ return matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"; }
+
+function goTo(i, instant){
+  i = Math.max(0, Math.min(S.slides.length-1, i));
+  const w = scroller.clientWidth;
+  scroller.scrollTo({left:(rtl()?-1:1)*i*w, behavior: instant ? "auto" : smooth()});
+  if (instant) setCurrent(i);
+}
+function setCurrent(i){
+  S.index = i;
+  const units = S.slides[i] || ["cover"];
+  if (!S.restoring) S.unit = units[0];
+  const n = S.slides.length;
+  $("count").textContent = (i+1) + " / " + n;
+  $("progBar").style.width = (n>1 ? (i/(n-1))*100 : 0) + "%";
+  ["prevBtn","sidePrev"].forEach(id => $(id).disabled = i===0);
+  ["nextBtn","sideNext"].forEach(id => $(id).disabled = i===n-1);
+  hydrate(i);
+  try { history.replaceState(null, "", "#" + S.lang + "-" + S.unit); } catch(e){}
+}
+function hydrate(i){
+  for (let k=i-1; k<=i+2; k++){
+    const sl = scroller.children[k]; if (!sl) continue;
+    sl.querySelectorAll("img[data-src]").forEach(img => { img.src = img.dataset.src; img.removeAttribute("data-src"); });
+  }
+}
+let raf = 0;
+scroller.addEventListener("scroll", () => {
+  if (raf) return;
+  raf = requestAnimationFrame(() => {
+    raf = 0;
+    const w = scroller.clientWidth || 1;
+    const i = Math.round(Math.abs(scroller.scrollLeft)/w);
+    if (i !== S.index) setCurrent(i);
+  });
+}, {passive:true});
+
+function rebuild(keepUnit){
+  const u = keepUnit || S.unit;
+  S.restoring = true;
+  render();
+  requestAnimationFrame(() => {
+    const i = slideIndexOf(u);
+    S.unit = u;
+    goTo(i, true);
+    setTimeout(() => { S.restoring = false; }, 120);
+  });
+}
+
+function next(){ goTo(S.index+1); }
+function prev(){ goTo(S.index-1); }
+$("nextBtn").onclick = next; $("prevBtn").onclick = prev;
+$("sideNext").onclick = next; $("sidePrev").onclick = prev;
+$("ctaBtn").onclick = () => goTo(slideIndexOf("partner"));
+
+document.addEventListener("keydown", e => {
+  if (!$("splash").classList.contains("gone") || !$("toc").hidden) { if (e.key==="Escape") closeToc(); return; }
+  if (e.target.closest && e.target.closest("input,textarea")) return;
+  const fwd = rtl() ? "ArrowLeft" : "ArrowRight", back = rtl() ? "ArrowRight" : "ArrowLeft";
+  if (e.key===fwd || e.key==="PageDown") { e.preventDefault(); next(); }
+  else if (e.key===back || e.key==="PageUp") { e.preventDefault(); prev(); }
+  else if (e.key==="Home") { e.preventDefault(); goTo(0); }
+  else if (e.key==="End") { e.preventDefault(); goTo(S.slides.length-1); }
+  else if (e.key==="Escape") closeLang();
+});
+let wheelLock = 0, wheelAcc = 0;
+scroller.addEventListener("wheel", e => {
+  if (S.mode!=="spread") return;
+  if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+  const now = Date.now(); if (now < wheelLock) return;
+  wheelAcc += e.deltaY;
+  if (Math.abs(wheelAcc) > 40){ wheelAcc>0 ? next() : prev(); wheelAcc = 0; wheelLock = now + 650; }
+}, {passive:true});
+
+/* language menu */
+function buildLangMenu(){
+  $("langMenu").innerHTML = LANGS.map(l => `<button role="menuitemradio" aria-checked="${l===S.lang}" aria-current="${l===S.lang}" data-l="${l}" lang="${l}" dir="${RTL[l]?"rtl":"ltr"}"><span>${UI[l].name}</span><small>${UI[l].code}</small></button>`).join("");
+  $("langMenu").querySelectorAll("button").forEach(b => b.onclick = () => { closeLang(); if (b.dataset.l!==S.lang) applyLang(b.dataset.l); rebuild("cover"); });
+}
+function closeLang(){ $("langMenu").hidden = true; $("langBtn").setAttribute("aria-expanded","false"); }
+$("langBtn").onclick = e => { e.stopPropagation(); const m=$("langMenu"); m.hidden = !m.hidden; $("langBtn").setAttribute("aria-expanded", String(!m.hidden)); if(!m.hidden) m.querySelector("[aria-current=true]").focus(); };
+document.addEventListener("click", e => { if (!e.target.closest("#langMenu,#langBtn")) closeLang(); });
+
+/* contents */
+const TOC = ["cover","vision","garden","sanctuary","dome","arkOpen","arkClosed","kollel","library","computers","reception","hall","kitchen","parking","donors","partner"];
+function openToc(){
+  const g = $("tocGrid");
+  g.innerHTML = TOC.map(u => {
+    const d = UNITS[u];
+    const title = u==="cover" ? ui("cover") : u==="partner" ? tx().partner.t : tx()[u].t;
+    const k = u==="vision" ? "" : u==="partner" ? KICK[S.lang].partnership : (d.kick ? KICK[S.lang][d.kick] : "");
+    const thumb = d.img ? `<img src="img/t/${d.img}.jpg" alt="" loading="lazy">` : emb("");
+    const cur = S.slides[S.index] && S.slides[S.index].includes(u);
+    return `<li><button data-u="${u}" aria-current="${cur}"><span class="toc-thumb">${thumb}</span>${k?`<span class="toc-k">${esc(k)}</span>`:""}<span class="toc-t">${esc(title)}</span></button></li>`;
+  }).join("");
+  g.querySelectorAll("button").forEach(b => b.onclick = () => { closeToc(); S.unit=b.dataset.u; goTo(slideIndexOf(b.dataset.u), true); });
+  $("toc").hidden = false;
+  $("tocClose").focus();
+}
+function closeToc(){ if ($("toc").hidden) return; $("toc").hidden = true; $("tocBtn").focus(); }
+$("tocBtn").onclick = openToc; $("tocClose").onclick = closeToc;
+
+/* copy number */
+let toastT;
+function toast(msg){ let t=document.querySelector(".toast"); if(!t){t=document.createElement("div");t.className="toast";t.setAttribute("role","status");document.body.appendChild(t);} t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>{t.hidden=true;},2200); }
+function copyNumber(e){
+  const btn = e.currentTarget;
+  const sel = () => { const n = btn.parentElement.querySelector(".num"); if (!n) return; const r=document.createRange(); r.selectNodeContents(n); const s=getSelection(); s.removeAllRanges(); s.addRange(r); };
+  try {
+    navigator.clipboard.writeText(PHONE).then(() => toast(ui("copied")), sel);
+  } catch(err){ sel(); }
+}
+
+/* splash */
+function start(l, unit){
+  applyLang(l);
+  S.unit = unit || "cover";
+  rebuild(S.unit);
+  const sp = $("splash"); sp.classList.add("gone"); sp.setAttribute("aria-hidden","true");
+  setTimeout(()=>{ sp.hidden = true; }, 650);
+}
+document.querySelectorAll(".gate").forEach(g => g.onclick = () => start(g.dataset.lang, "cover"));
+
+let mq = matchMedia("(min-width: 900px) and (min-aspect-ratio: 11/10)");
+const onMode = () => { if ($("splash").hidden || $("splash").classList.contains("gone")) rebuild(); };
+mq.addEventListener ? mq.addEventListener("change", onMode) : mq.addListener(onMode);
+let rT; addEventListener("resize", () => { clearTimeout(rT); rT = setTimeout(() => { if (S.slides.length) goTo(S.index, true); }, 150); });
+
+/* boot: deep link #lang-unit skips the language screen */
+const m = (location.hash||"").match(/^#(he|en|fr|es)(?:-([A-Za-z]+))?$/);
+if (m && (!m[2] || UNITS[m[2]])) { $("splash").hidden = true; $("splash").classList.add("gone"); start(m[1], m[2]||"cover"); }
+else { applyLang("he"); render(); setCurrent(0); }
+})();
+</script>
+</body></html>
