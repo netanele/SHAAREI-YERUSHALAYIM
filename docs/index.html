@@ -69,12 +69,16 @@ button{font:inherit;color:inherit;cursor:pointer}
 .bar .mid{flex:1;min-width:0;display:flex;justify-content:center;align-items:center;gap:8px;color:var(--gold-hi)}
 .wm{font-family:var(--f-he);font-weight:700;font-size:19px;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 html:not([lang="he"]) .wm{font-family:var(--f-caps);font-weight:600;font-size:14px;letter-spacing:.14em}
-@media (max-width:480px){html:not([lang="he"]) .wm{font-size:10.5px;letter-spacing:.06em;white-space:normal;line-height:1.15;text-align:center;max-width:9.5em}html:not([lang="he"]) .mid svg{display:none}.ibtn .globe{display:none}.bar{gap:8px}.cta{padding:0 13px}}
+@media (max-width:480px){html:not([lang="he"]) .wm{font-size:10.5px;letter-spacing:.06em;white-space:normal;line-height:1.15;text-align:center;max-width:9.5em}html:not([lang="he"]) .mid svg{display:none}.ibtn .globe{display:none}.bar{gap:6px}.cta{padding:0 13px}}
+@media (max-width:400px){.wm{font-size:16px}.mid svg{display:none}.cta{padding:0 11px;font-size:13px}}
 .mid svg{width:20px;height:22px;flex:none}
 .ibtn{flex:none;height:40px;min-width:40px;padding:0 10px;border-radius:999px;border:1px solid var(--line);
   background:rgba(12,23,46,.4);color:var(--gold-hi);display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:14px;font-weight:600}
 .ibtn:hover{background:rgba(207,167,90,.12)}
 .ibtn svg{width:18px;height:18px}
+.ibtn.sq{width:40px;padding:0}
+.ibtn.sq svg{width:20px;height:20px}
+#muteBtn[aria-pressed="true"]{color:var(--ivory-soft)}
 .lbl-wide{display:none}
 @media (min-width:760px){.lbl-wide{display:inline}}
 .cta{flex:none;height:40px;padding:0 16px;border-radius:999px;border:0;
@@ -336,6 +340,12 @@ html[lang="he"] .toc-k{letter-spacing:.04em;font-size:12px}
       <span class="lbl-wide" data-ui="contents"></span><span class="sr" data-ui="contents"></span>
     </button>
     <div class="mid"><svg viewBox="0 0 64 72" aria-hidden="true" class="emb-s"><use href="#emb"/></svg><span class="wm" id="wm"></span></div>
+    <button class="ibtn sq" id="muteBtn" type="button" aria-pressed="false">
+      <svg id="icoOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" hidden><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke-linejoin="round"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" stroke-linecap="round"/></svg>
+      <svg id="icoOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke-linejoin="round"/><path d="M16 9.5l5 5M21 9.5l-5 5" stroke-linecap="round"/></svg>
+      <span class="sr" id="muteLbl"></span>
+    </button>
+    <audio id="music" src="audio/jerusalem-night.mp3" loop preload="none"></audio>
     <button class="ibtn" id="langBtn" aria-haspopup="menu" aria-expanded="false">
       <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.6 3.6 5.6 3.6 8.5s-1 5.9-3.6 8.5c-2.6-2.6-3.6-5.6-3.6-8.5s1-5.9 3.6-8.5z"/></svg>
       <span id="langCode"></span><span class="sr" data-ui="language"></span>
@@ -416,6 +426,13 @@ const UI = {
   es:{code:"ES",name:"Español",contents:"Índice",language:"Idioma",partner:"Colabore con nosotros",partnerShort:"Colaborar",prev:"Anterior",next:"Siguiente",close:"Cerrar",
       swipe:"Deslice para pasar la página",whatsapp:"Contactar por WhatsApp",scan:"Escanee el código para escribir por WhatsApp",copy:"Copiar número",copied:"Número copiado",
       note:"Todas las imágenes son representaciones conceptuales de un proyecto planificado.",cover:"Portada",wa:"Hola Marc, vi el catálogo de Shaarei Yerushalayim y me gustaría saber más sobre cómo colaborar."}
+};
+
+const MUTE = {
+  he:{on:"השתקת המוזיקה",off:"הפעלת המוזיקה"},
+  en:{on:"Mute music",off:"Play music"},
+  fr:{on:"Couper la musique",off:"Activer la musique"},
+  es:{on:"Silenciar la música",off:"Activar la música"}
 };
 
 const KICK = {
@@ -647,6 +664,7 @@ function applyLang(l){
   $("langCode").textContent = UI[l].code;
   $("ctaBtn").setAttribute("aria-label", ui("partner"));
   buildLangMenu();
+  syncMute();
 }
 
 function slideIndexOf(u){ const i = S.slides.findIndex(arr => arr.includes(u)); return i<0?0:i; }
@@ -764,9 +782,64 @@ function copyNumber(e){
   } catch(err){ sel(); }
 }
 
+/* background music ("The Silence of Jerusalem at Night", jakob_welik, Pixabay Content License).
+   Browsers only allow sound after a tap, so it starts with the language choice
+   (or the first tap after a deep link). The top-bar button mutes it; the choice is remembered. */
+const music = $("music");
+const MUSIC_VOL = 0.55;
+let muted = false, fadeRaf = 0, armed = false, resumeOnShow = false;
+try { muted = localStorage.getItem("sy-muted") === "1"; } catch(e){}
+function playing(){ return !music.paused && !music.ended; }
+function fadeTo(target, ms, done){
+  cancelAnimationFrame(fadeRaf);
+  const from = music.volume, t0 = performance.now();
+  const step = now => {
+    const k = Math.min(1, (now - t0) / ms);
+    try { music.volume = from + (target - from) * k; } catch(e){}
+    if (k < 1) fadeRaf = requestAnimationFrame(step); else if (done) done();
+  };
+  fadeRaf = requestAnimationFrame(step);
+}
+function syncMute(){
+  const on = playing();
+  $("icoOn").toggleAttribute("hidden", !on); $("icoOff").toggleAttribute("hidden", on);
+  $("muteBtn").setAttribute("aria-pressed", String(!on));
+  const label = on ? MUTE[S.lang].on : MUTE[S.lang].off;
+  $("muteLbl").textContent = label; $("muteBtn").title = label;
+}
+function armGesture(){
+  if (armed) return; armed = true;
+  const go = e => {
+    if (e.target.closest && e.target.closest("#muteBtn")) return;
+    ["pointerdown","keydown"].forEach(t => removeEventListener(t, go, true));
+    armed = false; playMusic();
+  };
+  ["pointerdown","keydown"].forEach(t => addEventListener(t, go, true));
+}
+function playMusic(){
+  if (muted) { syncMute(); return; }
+  try { music.volume = 0; } catch(e){}
+  let p;
+  try { p = music.play(); } catch(e){ armGesture(); return; }
+  if (p && p.then) p.then(() => { fadeTo(MUSIC_VOL, 2500); syncMute(); }).catch(() => { armGesture(); syncMute(); });
+  else { fadeTo(MUSIC_VOL, 2500); syncMute(); }
+}
+$("muteBtn").onclick = () => {
+  if (playing()) { muted = true; fadeTo(0, 400, () => music.pause()); }
+  else { muted = false; playMusic(); }
+  try { localStorage.setItem("sy-muted", muted ? "1" : "0"); } catch(e){}
+};
+music.addEventListener("play", syncMute);
+music.addEventListener("pause", syncMute);
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) { resumeOnShow = playing(); if (resumeOnShow) music.pause(); }
+  else if (resumeOnShow && !muted) { music.play().catch(() => {}); }
+});
+
 /* splash */
 function start(l, unit){
   applyLang(l);
+  playMusic();
   S.unit = unit || "cover";
   rebuild(S.unit);
   const sp = $("splash"); sp.classList.add("gone"); sp.setAttribute("aria-hidden","true");

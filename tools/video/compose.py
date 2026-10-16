@@ -9,7 +9,9 @@ Each scene: a slow, gentle zoom on the image with the text layer fading in,
 then a soft crossfade to the next scene. Motion is kept small on purpose:
 less change between frames means less damage when WhatsApp re-compresses.
 Run from tools/video. Images come from docs/img; text layers and output
-go to data/video-build (git-ignored). Make the text layers first with render.py."""
+go to data/video-build (git-ignored). Make the text layers first with render.py.
+Music: docs/audio/jerusalem-night.mp3 ("The Silence of Jerusalem at Night" by
+jakob_welik, Pixabay Content License), faded in and out under the scenes."""
 import os, subprocess, sys
 import numpy as np
 from PIL import Image
@@ -21,6 +23,10 @@ XF = 0.7                    # crossfade seconds
 OV_IN, OV_DUR = 0.3, 0.6    # text fade-in start / length within a scene
 IMG_DIR = "../../docs/img"
 BUILD = "../../data/video-build"
+MUSIC = "../../docs/audio/jerusalem-night.mp3"
+MUSIC_START = 0.2           # seconds into the file where the video's music starts
+MUSIC_GAIN_DB = 3           # the catalog file is mastered quiet (-20 LUFS); lift it for the video
+FADE_IN, FADE_OUT = 0.6, 3.0
 
 # (text layer, image, seconds, zoom_from, zoom_to, center_y_from, center_y_to)
 SCENES = [
@@ -92,13 +98,21 @@ def encode(out_path):
         v = ["-crf", "17", "-maxrate", "3500k", "-bufsize", "7000k"]
     else:
         v = ["-crf", "19", "-maxrate", "8000k", "-bufsize", "16000k"]
+    if os.path.exists(MUSIC):
+        audio_in = ["-ss", str(MUSIC_START), "-i", MUSIC]
+        afilter = (f"volume={MUSIC_GAIN_DB}dB,afade=t=in:d={FADE_IN},"
+                   f"afade=t=out:st={total - FADE_OUT:.2f}:d={FADE_OUT},atrim=0:{total:.2f}")
+        audio_opts = ["-af", afilter, "-c:a", "aac", "-b:a", "160k", "-ar", "44100"]
+    else:  # silent track keeps players happy
+        audio_in = ["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo"]
+        audio_opts = ["-c:a", "aac", "-b:a", "48k"]
     cmd = ["ffmpeg", "-y", "-loglevel", "error",
            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-           "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
+           *audio_in,
            "-map", "0:v", "-map", "1:a", "-shortest",
            "-c:v", "libx264", "-preset", "slow", *v, "-g", str(FPS * 2),
            "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.1",
-           "-movflags", "+faststart", "-c:a", "aac", "-b:a", "48k", out_path]
+           "-movflags", "+faststart", *audio_opts, out_path]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     for k in range(n):
         proc.stdin.write(frame_at(scenes, starts, k / FPS).tobytes())

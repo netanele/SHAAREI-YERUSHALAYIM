@@ -11,6 +11,7 @@ Digital donor catalog for **Shaarei Yerushalayim (שערי ירושלים)**, a 
 |---|---|
 | `docs/index.html` | The whole site: one self-contained page (HTML, CSS, vanilla JS, no build step). Source of truth. |
 | `docs/img/` | Catalog images; `docs/img/t/` contents-screen thumbnails; `docs/img/og-cover.jpg` the 1200×630 link preview. |
+| `docs/audio/` | Background music `jerusalem-night.mp3` (see Music below). |
 | `docs/video/` | Hebrew promo videos: `…_WhatsApp.mp4` (720×1280, for sending in chats with HD on) and `…_HD.mp4` (1080×1920, send as a Document or upload to YouTube). |
 | `tools/video/` | Scripts that build the videos and the link-preview image. |
 | `data/` | Source material, **git-ignored** (the only ignored path): original Word texts, printer brief, original images, build output. Never commit it. |
@@ -23,6 +24,14 @@ Digital donor catalog for **Shaarei Yerushalayim (שערי ירושלים)**, a 
 - Images are conceptual renderings of a planned building. No tag on the images; keep the single line on the back cover and on the video's closing card ("כל התמונות הן הדמיות רעיוניות של פרויקט מתוכנן").
 - Contact: Marc Elbaz, WhatsApp +1 786 909 0999 (`https://wa.me/17869090999`). The QR code is an inline SVG in `index.html`.
 - No logo yet: the name is set in gold type. Replace when a logo file arrives.
+
+## Music
+
+- Track: "EG. – Sounds of the Eternal Land – The Silence of Jerusalem at Night" by jakob_welik, from Pixabay (https://pixabay.com/music/world-eg-sounds-of-the-eternal-land-the-silence-of-jerusalem-at-night-411194/). Pixabay Content License: free, commercial use allowed, no attribution required. It is Content ID registered, so a YouTube upload of the video may get a claim that can be cleared.
+- Only use music we have the right to use. Do not rip songs from YouTube or other commercial recordings.
+- `docs/audio/jerusalem-night.mp3` is trimmed of the opening silence and normalized to about -20 LUFS (soft background).
+- Catalog: the music starts with the language choice (browsers need a tap first; after a deep link it starts on the first tap) and loops. The speaker button in the top bar mutes and unmutes it; the choice is saved in `localStorage` (`sy-muted`). Music pauses when the tab is hidden.
+- Videos: `compose.py` mixes the same file under the scenes (start offset, +3 dB, fade in and out) when it exists.
 
 ## Design
 
