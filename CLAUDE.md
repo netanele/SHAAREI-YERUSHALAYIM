@@ -14,7 +14,7 @@ Digital donor catalog for **Shaarei Yerushalayim (שערי ירושלים)**, a 
 | `docs/audio/` | Background music `jerusalem-night.mp3` (see Music below). |
 | `docs/video/` | Hebrew promo videos: `…_WhatsApp.mp4` (720×1280, for sending in chats with HD on) and `…_HD.mp4` (1080×1920, send as a Document or upload to YouTube). |
 | `tools/video/` | Scripts that build the videos and the link-preview image. |
-| `data/` | Source material, **git-ignored** (the only ignored path): original Word texts, printer brief, original images, build output. Never commit it. |
+| `data/` | Source material, **git-ignored** (`.gitignore` lists only `/data/` and `.DS_Store`): original Word texts, printer brief, original images, build output. Never commit it. |
 
 ## Content rules
 
